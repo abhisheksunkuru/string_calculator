@@ -14,6 +14,8 @@ RSpec.describe StringCalculator do
       expect(@cal.add("1,2,3")).to eq(6)
     end  
     it "should return sum for  multiline numbers separated by comma" do
+      expect(@cal.add("1\n2,3")).to eq(6)
+      expect(@cal.add("1\n2")).to eq(3)
     end
     it "should support custom delimiters" do
     end  
