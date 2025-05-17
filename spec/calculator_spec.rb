@@ -1,7 +1,11 @@
 require_relative '../calculator'
 RSpec.describe StringCalculator do
   describe "#add" do
+    before do
+      @cal = StringCalculator.new
+    end  
     it "should return 0 for empty string" do
+      expect(@cal.add("")).to eq(0)
     end
     it "should return same number for single number"  do
     end
