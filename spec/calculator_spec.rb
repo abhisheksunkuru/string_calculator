@@ -18,6 +18,8 @@ RSpec.describe StringCalculator do
       expect(@cal.add("1\n2")).to eq(3)
     end
     it "should support custom delimiters" do
+      expect(@cal.add("//;\n1;2")).to eq(3)
+      expect(@cal.add("//;\n1;2\n3")).to eq(6)
     end  
     it "should throw error for negative number" do
     end  
