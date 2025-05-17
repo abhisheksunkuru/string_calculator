@@ -5,8 +5,12 @@ class StringCalculator
     delimiters = [",", "\n"]
     if input_striped.start_with?("//")
       delimiter_line, input = input_striped.split("\n", 2)
-      custom_delimiter = delimiter_line[2]
-      delimiters << custom_delimiter
+      # Extract custom delimiters from format: //[***][%%]
+      if delimiter_line.include?("[")
+        delimiters += delimiter_line.scan(/\[(.*?)\]/).flatten
+      else
+        delimiters << delimiter_line[2]
+      end
     end  
     return input_striped.to_i if !delimiters.any? { |delim| input_striped.include?(delim) }
     str_arr = input_striped.split(Regexp.union(delimiters))
