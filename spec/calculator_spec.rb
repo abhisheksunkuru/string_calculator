@@ -8,6 +8,7 @@ RSpec.describe StringCalculator do
       expect(@cal.add("")).to eq(0)
     end
     it "should return same number for single number"  do
+      expect(@cal.add("1")).to eq(1)
     end
     it "should return sum for comma separated numbers" do
     end  
